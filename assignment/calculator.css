@@ -1,0 +1,42 @@
+.calculator {
+    padding: 1px;
+    
+    height: 380px;
+    width: 400px;
+    margin: auto;
+    background-color: #191b28;
+     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px; 
+}
+
+.display-box {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #dcdbe1;
+    
+    color: black;
+    border-radius: 0px;
+    width: 100%;
+    height: 65%;
+}
+
+#btn {
+    background-color: grey;
+}
+#clr {
+    background-color: rgb(41, 238, 228);
+}
+
+input[type=button] {
+    font-family: 'Orbitron', sans-serif;
+    background-color: black;
+    color: white;
+    border: solid black 0.5px;
+    width: 100%;
+    border-radius: 0px;
+    height: 100%;
+    outline: none;
+}
+
+input:active[type=button] {
+    background: #e5e5e5;
+    
+}

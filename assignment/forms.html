@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="forms.css">
+</head>
+<body >
+    
+    <div class="container" id="bgg">
+        <h1>Survey Form</h1>
+        <form id="surveyForm">
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" required>
+            </div>
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <select id="country" required>
+                    <option value="">Select Country</option>
+                    <option value="India">India</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Russia">Russia</option>
+                    <option value="Canada">Canada</option>`
+                    <option value="France">France</option>
+                    
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Gender:</label><br>
+                <input type="checkbox" id="male" name="gender" value="Male">
+                <label for="male">Male</label><br>
+                <input type="checkbox" id="female" name="gender" value="Female">
+                <label for="female">Female</label>
+            </div>
+            <div class="form-group">
+                <label for="profession">Profession:</label>
+                <input type="text" id="profession" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile Number:</label>
+                <input type="tel" id="mobile" required>
+            </div>
+            <div class="form-group">
+                <button type="button" id="submitBtn" onclick="submitForm()">Submit</button>
+                <button type="button" id="resetBtn" onclick="resetForm()">Reset</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function submitForm() {
+            
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const dob = document.getElementById('dob').value;
+            const country = document.getElementById('country').value;
+            const genderInputs = document.getElementsByName('gender');
+            const profession = document.getElementById('profession').value;
+            const email = document.getElementById('email').value;
+            const mobile = document.getElementById('mobile').value;
+
+            
+            if (!firstName || !lastName || !dob || !country || !getSelectedGender() || !profession || !email || !mobile) {
+                alert('Please fill in all the fields.');
+                return;
+            }
+
+            
+            const popupMessage = `
+                First Name: ${firstName}
+                Last Name: ${lastName}
+                Date of Birth: ${dob}
+                Country: ${country}
+                Gender: ${getSelectedGender()}
+                Profession: ${profession}
+                Email: ${email}
+                Mobile Number: ${mobile}
+            `;
+
+            alert(popupMessage);
+
+            
+            resetForm();
+        }
+
+        function getSelectedGender() {
+            const genderInputs = document.getElementsByName('gender');
+            for (const input of genderInputs) {
+                if (input.checked) {
+                    return input.value;
+                }
+            }
+            return '';
+        }
+
+        function resetForm() {
+            document.getElementById('surveyForm').reset();
+        }
+    </script>
+</body>
+</html>
